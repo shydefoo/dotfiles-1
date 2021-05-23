@@ -1,0 +1,36 @@
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+#ycm settings
+*.ycm_extra_conf.py
+.flake8
+*.factorypath
+*.java-version
+
+#project specific vim settings
+*.vimrc
+*.lvimrc
+
+
+#pyenv settings
+*.python-version
+
+
+# notes
+*.shide_notes.md
+*.shide_notes/*
+
+# session vim
+*Session.vim

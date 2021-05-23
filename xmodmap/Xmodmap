@@ -1,0 +1,21 @@
+! lines starting with '!' indicate comments
+!remap backslash key to slash
+keycode 51 = 0x2f 0x3f
+!remap slash to backslash
+keycode 61 = 0x5c 0x7c
+!remap escape to grave tilda
+keycode 9 = 0x60 0x7e
+!remap grave to escape
+keycode 49 = 0xff1b
+
+! mode switch
+keycode 66 = Mode_switch
+keysym h = h H Left
+keysym l = l L Right
+keysym k = k K Up
+keysym j = j J Down
+
+keysym a = a A Left
+keysym d = d D Right
+keysym w = w W Up
+keysym s = s S Down
