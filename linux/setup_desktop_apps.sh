@@ -1,4 +1,7 @@
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#! /bin/bash
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+echo $BASEDIR
 source "${BASEDIR}/shell_utils" || { echo "Failed to source shell_utils" >&2;exit 1; }
 
 ## install brave browser
@@ -13,7 +16,7 @@ p_header "Install spotify"
 snap install spotify
 
 ## Install brave browser
-sudo apt install -y brave-browser
+# sudo apt install -y brave-browser
 
 ## Compile youcompleteme
 

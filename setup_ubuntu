@@ -138,6 +138,7 @@ link_dotfile "tmux/tmux.conf"        ".tmux.conf"         || exitcode=1
 link_dotfile "git/gitconfig"         ".gitconfig"         || exitcode=1
 link_dotfile "git/gitignore"         ".gitignore"         || exitcode=1
 link_dotfile "xmodmap/Xmodmap"       ".Xmodmap"           || exitcode=1
+link_dotfile "config/flake8"         ".config/flake8"     || exitcode=1
 
 
 # ----------------------------------------------------

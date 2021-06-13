@@ -19,3 +19,4 @@ keysym a = a A Left
 keysym d = d D Right
 keysym w = w W Up
 keysym s = s S Down
+
