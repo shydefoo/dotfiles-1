@@ -13,7 +13,7 @@ ZSH_THEME="spaceship"
 
 # Spaceship options
 # SPACESHIP_VENV_SHOW=false
-SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_SHOW=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -186,3 +186,6 @@ alias pbpaste='xclip -selection clipboard -o'
 alias suspend='systemctl suspend'
 alias toodark='lookandfeeltool -a com.github.vinceliuice.Orchis > /dev/null 2>&1'
 alias toobright='lookandfeeltool -a com.github.vinceliuice.Orchis-dark > /dev/null 2>&1'
+
+# docker aliases
+alias drmi='docker rmi $(docker images | grep '"'"'^<none>'"'"'| awk '"'"'{print $3}'"'"')'
