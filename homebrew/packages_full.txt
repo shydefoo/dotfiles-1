@@ -11,3 +11,10 @@ python3
 pygments
 ffmpeg
 youtube-dl
+pyenv
+pyenv-virtualenv
+fzf
+kubectl
+autojump
+pre-commit
+ack

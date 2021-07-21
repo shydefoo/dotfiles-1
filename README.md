@@ -77,3 +77,5 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
     -   Plugins
         -   [vim-awesome](https://github.com/shydefoo/vimrc)
 
+- [Fonts](./fonts) 
+  - use fonts in *_nerd_font for vim-devicons to show up

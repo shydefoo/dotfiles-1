@@ -154,6 +154,7 @@ p_header "Install Spaceship"
 TMP_INSTALL_PATH="${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt"
 if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
     git clone https://github.com/denysdovhan/spaceship-prompt.git "${TMP_INSTALL_PATH}" --depth=1 || { echo "Failed" >&2;exit 1; }
+    ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
     p_success "Done"
 else
@@ -166,12 +167,16 @@ fi
 # ----------------------------------------------------
 # Linking dotfiles
 
+mkdir -p ~/.config
+mkdir -p ~/.config/karabiner
+mkdir -p ~/.config/nvim
 link_dotfile "zsh/zshrc"             ".zshrc"             || exitcode=1
 link_dotfile "tmux/tmux.conf"        ".tmux.conf"         || exitcode=1
 link_dotfile "git/gitconfig"         ".gitconfig"         || exitcode=1
 link_dotfile "git/gitignore"         ".gitignore"         || exitcode=1
 link_dotfile "config/flake8"         ".config/flake8"     || exitcode=1
 link_dotfile "karabiner/karabiner.json" ".config/karabiner/karabiner.json" || exitcode=1
+ln -s ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim || exitcode=1
 
 
 # ----------------------------------------------------
@@ -187,6 +192,19 @@ if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
     p_success "Done"
 else
     p_success "vim_runtime already installed."
+fi
+
+p_header "Install YouCompleteMe"
+TMP_INSTALL_PATH="${HOME}/.vim_runtime/my_plugins/YouCompleteMe"
+if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
+    git clone https://github.com/ycm-core/YouCompleteMe.git "${TMP_INSTALL_PATH}" || { echo "Failed" >&2;exit 1; }
+    cur_dir=$(pwd)
+    cd "${TMP_INSTALL_PATH}"
+    git submodule update --init--recursive
+    ./install.py
+    p_success "Done"
+else
+    p_success "YouCompleteMe already installed."
 fi
 
 # ----------------------------------------------------
@@ -217,9 +235,9 @@ p_success "Done"
 # ----------------------------------------------------
 # macOS System Preferences
 
-p_header "Setting Custom System Preferences"
-bash "${BASEDIR}/macos/macOS_custom_setup.sh" || exitcode=1
-p_success "Done"
+# p_header "Setting Custom System Preferences"
+# bash "${BASEDIR}/macos/macOS_custom_setup.sh" || exitcode=1
+# p_success "Done"
 
 
 # ----------------------------------------------------
