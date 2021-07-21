@@ -60,14 +60,14 @@ if ! type_exists 'brew'; then
 
     if type_exists 'brew'; then
         p_success "Successfully installed homebrew"
-        brew_install_basic
+        brew_install_full
     else
         p_error "Failed to install homebrew."
         exit 1
     fi
 else
     p_success "Homebrew already installed."
-    brew_install_basic
+    brew_install_full
 fi
 
 # extend sudo timeout for another 5 mins
