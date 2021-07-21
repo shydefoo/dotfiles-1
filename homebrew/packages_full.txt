@@ -3,6 +3,7 @@ curl
 tree
 tmux
 vim
+nvim
 make
 cmake
 golang

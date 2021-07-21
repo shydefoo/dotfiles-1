@@ -1,11 +1,11 @@
 # Dotfiles
 
-_personal dotfiles & quick machine setup scripts_
+_personal dotfiles & quick machine setup scripts, blatently borrowed from MarkHershey's repo [here](https://github.com/MarkHershey/dotfiles)_
 
-![](https://github.com/MarkHershey/dotfiles/workflows/Shellcheck/badge.svg?branch=master)
-![](https://github.com/MarkHershey/dotfiles/workflows/CI-ubuntu/badge.svg?branch=master)
-![](https://github.com/MarkHershey/dotfiles/workflows/CI-ubuntu-curl/badge.svg?branch=master)
-![](https://github.com/MarkHershey/dotfiles/workflows/CI-macOS/badge.svg?branch=master)
+![](https://github.com/shydefoo/dotfiles/workflows/Shellcheck/badge.svg?branch=master)
+![](https://github.com/shydefoo/dotfiles/workflows/CI-ubuntu/badge.svg?branch=master)
+![](https://github.com/shydefoo/dotfiles/workflows/CI-ubuntu-curl/badge.svg?branch=master)
+![](https://github.com/shydefoo/dotfiles/workflows/CI-macOS/badge.svg?branch=master)
 
 ---
 
@@ -16,7 +16,7 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
 -   Bootstrap Install w/ Git
 
     ```bash
-    $ git clone https://github.com/MarkHershey/dotfiles.git
+    $ git clone https://github.com/shydefoo/dotfiles.git
     $ cd dotfiles
     $ ./install
     ```
@@ -24,7 +24,7 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
 -   Bootstrap Install w/ Curl
 
     ```bash
-    $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/MarkHershey/dotfiles/master/curl_install)"
+    $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/shydefoo/dotfiles/master/curl_install)"
     ```
 
 ## Configurations
@@ -70,17 +70,10 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
         -   [zsh-completions](https://github.com/zsh-users/zsh-completions)
         -   [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
     -   Theme
-        -   [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+        -   [starship](https://starship.rs/)
 -   [`tmux`](https://github.com/tmux/tmux/wiki)
 -   [`vim`](https://www.vim.org/)
-    -   Plugin Manager
-        -   [Vundle](https://github.com/VundleVim/Vundle.vim)
+-   [`neovim`](https://neovim.io/)
     -   Plugins
-        -   [vim-airline / vim-airline](https://github.com/vim-airline/vim-airline)
-        -   [preservim / nerdtree](https://github.com/preservim/nerdtree)
-        -   [python-mode / python-mode](https://github.com/python-mode/python-mode)
-        -   [zxqfl / tabnine-vim](https://github.com/zxqfl/tabnine-vim)
+        -   [vim-awesome](https://github.com/shydefoo/vimrc)
 
-## LICENSE
-
-Copyright (c) 2020-2021 Mark Huang - [MIT LICENSE](LICENSE)

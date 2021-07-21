@@ -9,7 +9,7 @@ download_dotfiles() {
     # -p Create intermediate directories as required.
     mkdir -p "${DOTFILES_DIRECTORY}"
     # Get the tarball
-    if curl -fsSLo dotfiles.tar.gz https://github.com/MarkHershey/dotfiles/tarball/master; then
+    if curl -fsSLo dotfiles.tar.gz https://github.com/shydefoo/dotfiles-1/tarball/master; then
       printf "Done.\n\n"
     else
       echo "Failed to download the dotfiles."
