@@ -147,47 +147,58 @@ else
     p_success "Zsh Completions already installed."
 fi
 
-
 # ----------------------------------------------------
-# Powerlevel 10k
+# Spaceship
 
-p_header "Install Powerlevel 10k"
-TMP_INSTALL_PATH="${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
+p_header "Install Spaceship"
+TMP_INSTALL_PATH="${HOME}/.oh-my-zsh/custom/themes/spaceship-prompt"
 if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${TMP_INSTALL_PATH}" || { echo "Failed" >&2;exit 1; }
+    git clone https://github.com/denysdovhan/spaceship-prompt.git "${TMP_INSTALL_PATH}" --depth=1 || { echo "Failed" >&2;exit 1; }
+    ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
     p_success "Done"
 else
-    p_success "Powerlevel 10k already installed."
+    p_success "Spaceship already installed."
 fi
+# ----------------------------------------------------
+
 
 
 # ----------------------------------------------------
 # Linking dotfiles
 
 link_dotfile "zsh/zshrc"             ".zshrc"             || exitcode=1
-link_dotfile "p10k/p10k.zsh"         ".p10k.zsh"          || exitcode=1
 link_dotfile "tmux/tmux.conf"        ".tmux.conf"         || exitcode=1
-link_dotfile "tmux/tmux.conf.local"  ".tmux.conf.local"   || exitcode=1
-link_dotfile "vim/vimrc"             ".vimrc"             || exitcode=1
 link_dotfile "git/gitconfig"         ".gitconfig"         || exitcode=1
+link_dotfile "git/gitignore"         ".gitignore"         || exitcode=1
+link_dotfile "config/flake8"         ".config/flake8"     || exitcode=1
+link_dotfile "karabiner/karabiner.json" ".config/karabiner/karabiner.json" || exitcode=1
 
 
 # ----------------------------------------------------
 # Vim plugins
 
-p_header "Install Vundle"
-TMP_INSTALL_PATH="${HOME}/.vim/bundle/Vundle.vim"
+p_header "Install vim awesome"
+TMP_INSTALL_PATH="${HOME}/.vim_runtime"
 if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git "${TMP_INSTALL_PATH}" || { echo "Failed" >&2;exit 1; }
+    git clone https://github.com/shydefoo/vimrc.git "${TMP_INSTALL_PATH}" || { echo "Failed" >&2;exit 1; }
+    cur_dir=$(pwd)
+    cd "${TMP_INSTALL_PATH}"
+    sh ./install_awesome_vimrc.sh
     p_success "Done"
 else
-    p_success "Vundle already installed."
+    p_success "vim_runtime already installed."
 fi
 
-
-p_header "Install Vim plugins via Vundle"
-vim +PluginInstall +qall > /dev/null || { echo "Failed" >&2;exit 1; }
-p_success "Done"
+# ----------------------------------------------------
+# Tmux plugins
+p_header "Install tmux plugin manager"
+TMP_INSTALL_PATH="${HOME}/.tmux/plugins/tpm"
+if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
+    git clone https://github.com/tmux-plugins/tpm "${TMP_INSTALL_PATH}"
+    p_success "Done"
+else
+    p_success "Tmux plugin manager installed"
+fi
 
 
 # ----------------------------------------------------
