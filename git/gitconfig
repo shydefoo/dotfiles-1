@@ -90,7 +90,7 @@
 [core]
 
  # Use custom .gitignore and .gitattributes
- excludesfile = ~/.gitignore
+	excludesfile = /Users/i519975/.gitignore
  attributesfile = ~/.gitattributes
 
  # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -192,10 +192,14 @@ editor = nvim
 
  insteadOf = "gist:"
 
+[url "ssh://git@github.wdf.sap.corp"]
+
+  insteadOf = https://github.wdf.sap.corp
+
 [user]
 
     # Set user commit information
-    email = shyde.foo@gmail.com
+	email = shide.foo01@sap.com
     name = Shide Foo
 
 [filter "lfs"]

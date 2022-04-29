@@ -21,8 +21,20 @@ ZSH_THEME="spaceship"
 # ZSH_THEME="robbyrussell"
 
 # Spaceship options
-# SPACESHIP_VENV_SHOW=false
-SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  golang        # Go section
+  pyenv         # Pyenv section
+  exec_time     # Execution time
+  line_sep      # Line break
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -93,10 +105,13 @@ plugins=(
   zsh-completions 
   zsh-autosuggestions 
   zsh-syntax-highlighting
+  pyenv
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 source $ZSH/oh-my-zsh.sh
 
+# pyenv disable prompt
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -156,6 +171,9 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # kubectl config
 alias k='kubectl'
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+alias kwru='kubectl config current-context'
+alias kwn='kubectl config get-contexts'
+
 
 # kubectl autocompletion
 source <(kubectl completion zsh)
@@ -165,7 +183,7 @@ complete -F __start_kubectl k
 alias istio=istioctl
 
 # for jenv
-# eval "$(jenv init -)"
+eval "$(jenv init -)"
 # eval "$(jenv enable-plugin export)"
 
 # for pyenv
@@ -173,7 +191,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 if [[ $OS == "Linux" ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -209,3 +227,12 @@ fi
 
 # docker aliases
 alias drmi='docker rmi $(docker images | grep '"'"'^<none>'"'"'| awk '"'"'{print $3}'"'"')'
+
+# find pod ip
+alias findpod='kubectl get pods -A -o wide | grep '
+alias findsvc='kubectl get services -A -o wide | grep '
+
+
+
+# gcp tools
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc

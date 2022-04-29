@@ -1,6 +1,6 @@
 # Dotfiles
 
-_personal dotfiles & quick machine setup scripts, blatently borrowed from MarkHershey's repo [here](https://github.com/MarkHershey/dotfiles)_
+_personal dotfiles & quick machine setup scripts, blatently stolen from MarkHershey's repo [here](https://github.com/MarkHershey/dotfiles)_
 
 ![](https://github.com/shydefoo/dotfiles/workflows/Shellcheck/badge.svg?branch=master)
 ![](https://github.com/shydefoo/dotfiles/workflows/CI-ubuntu/badge.svg?branch=master)
@@ -16,7 +16,7 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
 -   Bootstrap Install w/ Git
 
     ```bash
-    $ git clone https://github.com/shydefoo/dotfiles.git
+    $ git clone https://github.com/shydefoo/dotfiles-1.git dotfiles
     $ cd dotfiles
     $ ./install
     ```
@@ -29,7 +29,7 @@ To run automated dotfile-install script for Ubuntu & macOS, choose either:
 
 ## Configurations
 
--   [`git/gitconfig`](git/gitconfig) contains git user information.
+-   [`git/gitconfig`](git/gitconfig) contains git user information. Please set email address accordingly.
 -   [`macos/macOS_custom_setup.sh`](macos/macOS_custom_setup.sh) Line 105-115 contains language & timezone settings for macOS.
 
 ## Try it in Docker
