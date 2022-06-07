@@ -70,6 +70,13 @@ else
     brew_install_full
 fi
 
+
+# ----------------------------------------------------
+# Enable key bindings for fzf
+p_header "Enabling fzf"
+$(brew --prefix)/opt/fzf/install
+
+
 # extend sudo timeout for another 5 mins
 sudo -v
 
