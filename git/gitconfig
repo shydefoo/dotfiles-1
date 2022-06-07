@@ -192,9 +192,10 @@ editor = nvim
 
  insteadOf = "gist:"
 
-[url "ssh://git@github.wdf.sap.corp"]
+# To replace with gitlab url
+# [url "ssh://git@github.wdf.sap.corp"]
 
-  insteadOf = https://github.wdf.sap.corp
+ # insteadOf = https://github.wdf.sap.corp
 
 [user]
 
