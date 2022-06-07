@@ -118,7 +118,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "from": {
                                     "key_code": "s",
@@ -179,8 +178,8 @@
                         ]
                     },
                     {
-                      "description": "ctrl-shift escapte grave tilda",
-                      "manipulators": [
+                        "description": "ctrl-shift escapte grave tilda",
+                        "manipulators": [
                             {
                                 "from": {
                                     "key_code": "escape",
@@ -200,9 +199,8 @@
                                 ],
                                 "type": "basic"
                             }
-                      ]
+                        ]
                     }
-
                 ]
             },
             "devices": [
@@ -439,16 +437,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "apple_vendor_top_case_key_code": "keyboard_fn"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "escape"
                             },
                             "to": [
@@ -464,6 +452,16 @@
                             "to": [
                                 {
                                     "key_code": "escape"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "apple_vendor_top_case_key_code": "keyboard_fn"
                                 }
                             ]
                         }
@@ -620,11 +618,51 @@
                 },
                 {
                     "from": {
+                        "key_code": "escape"
+                    },
+                    "to": [
+                        {
+                            "key_code": "grave_accent_and_tilde"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "grave_accent_and_tilde"
+                    },
+                    "to": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ]
+                },
+                {
+                    "from": {
                         "key_code": "slash"
                     },
                     "to": [
                         {
                             "key_code": "backslash"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_top_case_key_code": "keyboard_fn"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "apple_vendor_top_case_key_code": "keyboard_fn"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
                         }
                     ]
                 }
