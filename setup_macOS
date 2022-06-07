@@ -183,6 +183,8 @@ link_dotfile "git/gitconfig"         ".gitconfig"         || exitcode=1
 link_dotfile "git/gitignore"         ".gitignore"         || exitcode=1
 link_dotfile "config/flake8"         ".config/flake8"     || exitcode=1
 link_dotfile "karabiner/karabiner.json" ".config/karabiner/karabiner.json" || exitcode=1
+link_dotfile "dotfiles/.bash_aliases" ".bash_aliases"     || exitcode=1
+link_dotfile "dotfiles/.bash_functions" ".bash_functions" || exitcode=1
 ln -s ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim || exitcode=1
 
 
@@ -212,6 +214,13 @@ if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
     p_success "Done"
 else
     p_success "YouCompleteMe already installed."
+fi
+
+# ----------------------------------------------------
+# True color in neovim
+p_header "Append config to init.vim"
+if [[ $(grep -L "set termguicolors" ${HOME}/.config/nvim/init.vim) ]]; then   
+  echo "set termguicolors" >> ${HOME}/.config/nvim/init.vim
 fi
 
 # ----------------------------------------------------
