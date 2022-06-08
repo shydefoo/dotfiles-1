@@ -18,3 +18,5 @@ kubectl
 autojump
 pre-commit
 ack
+watch
+jq

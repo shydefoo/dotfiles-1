@@ -173,6 +173,7 @@ alias k='kubectl'
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
 alias kwru='kubectl config current-context'
 alias kwn='kubectl config get-contexts'
+alias kis='kubectl --insecure-skip-tls-verify'
 
 
 # kubectl autocompletion
