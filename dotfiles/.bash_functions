@@ -219,3 +219,11 @@ function man {
     # Now run actual command `man` and search for string `search`
     LESS="$search" command man "$name"
 }
+
+
+function export_kubeconfig {
+  local ctx=$1
+  echo $1
+  local def_dir="/Users/shide.foo/kubeconfigs"
+  kubectl konfig export $1 > "${def_dir}/${ctx}.yaml"
+}

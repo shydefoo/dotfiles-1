@@ -20,3 +20,13 @@ pre-commit
 ack
 watch
 jq
+terminal-notifier
+node
+minikube
+tflint
+kubectx
+warrensbox/tap/tfswitch
+helm
+
+
+

@@ -14,7 +14,7 @@ Thumbs.db
 .Trashes
 
 #ycm settings
-*.ycm_extra_conf.py
+.ycm_extra_conf.py
 .flake8
 *.factorypath
 *.java-version
@@ -34,3 +34,4 @@ Thumbs.db
 
 # session vim
 *Session.vim
+

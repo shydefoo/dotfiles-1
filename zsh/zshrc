@@ -29,6 +29,8 @@ SPACESHIP_PROMPT_ORDER=(
   git           # Git section (git_branch + git_status)
   golang        # Go section
   pyenv         # Pyenv section
+  gcloud        # gcloud
+  kubectl # kube context
   exec_time     # Execution time
   line_sep      # Line break
   jobs          # Background jobs indicator
@@ -42,6 +44,10 @@ SPACESHIP_PROMPT_ORDER=(
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+SPACESHIP_KUBECTL_SHOW="true"
+SPACESHIP_KUBECTL_VERSION_SHOW="false"
+SPACESHIP_KUBECTL_COLOR="cyan"
+SPACESHIP_KUBECTL_VERSION_PREFIX=""
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -184,7 +190,7 @@ complete -F __start_kubectl k
 alias istio=istioctl
 
 # for jenv
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 # eval "$(jenv enable-plugin export)"
 
 # for pyenv
@@ -248,3 +254,4 @@ do
 done
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export PATH="/usr/local/opt/libpq/bin:$PATH"
