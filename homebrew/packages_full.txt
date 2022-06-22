@@ -27,6 +27,10 @@ tflint
 kubectx
 warrensbox/tap/tfswitch
 helm
-
+tg
+urlview
+ranger
+bat
+spotify-tui
 
 
