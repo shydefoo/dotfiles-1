@@ -90,7 +90,7 @@
 [core]
 
  # Use custom .gitignore and .gitattributes
-	excludesfile = /Users/i519975/.gitignore
+	excludesfile = ~/.gitignore
  attributesfile = ~/.gitattributes
 
  # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -193,14 +193,14 @@ editor = nvim
  insteadOf = "gist:"
 
 # To replace with gitlab url
-# [url "ssh://git@github.wdf.sap.corp"]
+[url "ssh://git@source.golabs.io"]
 
- # insteadOf = https://github.wdf.sap.corp
+ insteadOf = https://source.golabs.io
 
 [user]
 
     # Set user commit information
-	email = shide.foo01@sap.com
+	email = shide.foo@gojek.com
     name = Shide Foo
 
 [filter "lfs"]

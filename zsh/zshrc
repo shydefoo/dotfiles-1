@@ -258,3 +258,23 @@ done
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# see https://github.com/golang/go/issues/35164#issuecomment-632702878
+export GOPRIVATE=source.golabs.io
+
+
+alias tf=terraform
+if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
+
+## add cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+export FZF_DEFAULT_OPTS='--multi'
+
+## add poetry
+export PATH="/Users/shide.foo/.local/bin:$PATH"
+
+export XDG_CONFIG_HOME=~/.config
+export XDG_RUNTIME_DIR=/tmp/.runtime
+
+## add mason to path
+export PATH="$PATH:/Users/shide.foo/.local/share/nvim/mason/bin"

@@ -31,7 +31,8 @@ Thumbs.db
 # notes
 *.shide_notes.md
 *.shide_notes/*
+**/.shide_notes
 
 # session vim
-*Session.vim
+Session.vim
 
