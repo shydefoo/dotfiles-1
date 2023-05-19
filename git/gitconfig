@@ -208,3 +208,6 @@ editor = nvim
  smudge = git-lfs smudge -- %f
  process = git-lfs filter-process
  required = true
+
+[remote "origin"]
+    fetch = +refs/pull/*:refs/remotes/origin/pull/*

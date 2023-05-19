@@ -8,8 +8,8 @@ local solarized = {
 		ansi = { "#002b36", "#cb4b16", "#586e75", "#657b83", "#839496", "#6c71c4", "#93a1a1", "#fdf6e3" },
 	},
 }
--- Reload the configuration every minute
-wezterm.time.call_after(60, function()
+-- Reload the configuration every 10 minute
+wezterm.time.call_after(600, function()
 	wezterm.reload_configuration()
 end)
 
@@ -29,11 +29,14 @@ local M = {
 }
 
 local get_colors = function(config, time)
-	if 7 < time.hour and time.hour <= 10 then
+	if 7 <= time.hour and time.hour <= 9 then
+		-- 0700 to 0959
 		config.color_scheme = "dawnfox"
-	elseif 10 < time.hour and time.hour <= 16 then
+	elseif 10 <= time.hour and time.hour <= 15 then
+		-- 1000 to 1559
 		config.color_scheme = "dayfox"
-	elseif 16 < time.hour and time.hour <= 20 then
+	elseif 16 <= time.hour and time.hour <= 19 then
+		-- 1600 to 1959
 		config.color_scheme = "duskfox"
 	else
 		config.color_scheme = "nightfox"
