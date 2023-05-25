@@ -55,3 +55,19 @@ ctrl + alt - q : yabai --stop-service
 ctrl + alt - s : yabai --start-service
 
 
+# Open commonly used applications
+
+# Open slack
+ctrl + shift + alt - s : open -a "Slack"
+
+# Open wezterm
+ctrl + shift + alt - l : open -a "WezTerm"
+
+# Open telegram
+ctrl + shift + alt - t : open -a "Telegram"
+
+# Open arc
+ctrl + shift + alt - a : open -a "Arc"
+
+# Open notion
+ctrl + shift + alt - n : open -a "Notion"
