@@ -28,7 +28,7 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
   git           # Git section (git_branch + git_status)
   golang        # Go section
-  pyenv         # Pyenv section
+  python        # Pyenv section
   ruby          # rbenv section
   gcloud        # gcloud
   kubectl # kube context
@@ -50,6 +50,7 @@ SPACESHIP_KUBECTL_VERSION_SHOW="false"
 SPACESHIP_KUBECTL_COLOR="cyan"
 SPACESHIP_KUBECTL_VERSION_PREFIX=""
 SPACESHIP_RUBY_SHOW="true"
+SPACESHIP_PYTHON_SHOW="true"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -113,7 +114,7 @@ plugins=(
   zsh-completions 
   zsh-autosuggestions 
   zsh-syntax-highlighting
-  pyenv
+  # pyenv
   rbenv
   )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
@@ -155,7 +156,9 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-ORIGINAL_PATH=/usr/local/bin:/usr/local/go/bin:/usr/bin:/usr/sbin:/sbin:/bin
+# enable brew
+
+ORIGINAL_PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/go/bin:/usr/bin:/usr/sbin:/sbin:/bin
 export GOPATH=$HOME/go
 export SNAP=/snap/bin
 # export PATH=$HOME/.jenv/bin:$GOPATH/bin:${SNAP}:${HOME}/.krew/bin:$ORIGINAL_PATH
@@ -188,7 +191,7 @@ alias kis='kubectl --insecure-skip-tls-verify'
 
 # kubectl autocompletion
 source <(kubectl completion zsh)
-complete -F __start_kubectl k
+# complete -F __start_kubectl k
 
 #istioctl config
 alias istio=istioctl
@@ -203,9 +206,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 # export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv virtualenv-init -)"
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+# eval "$(pyenv virtualenv-init -)"
+# export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 if [[ $OS == "Linux" ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -215,7 +218,7 @@ else
 fi
 
 
-complete -o nospace -C /usr/local/bin/kustomize kustomize
+# complete -o nospace -C /usr/local/bin/kustomize kustomize
 
 # if [ ! "$TMUX" = ""  ]; then export TERM=xterm-256color; 
 # if [ ! "$TMUX" = ""  ]; then 
@@ -249,7 +252,7 @@ alias findsvc='kubectl get services -A -o wide | grep '
 
 
 # gcp tools
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 
 for file in ~/.bash_{aliases,functions}
@@ -292,3 +295,7 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
+export GOENV_VERSION=1.20.5
+
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+

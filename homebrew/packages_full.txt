@@ -6,8 +6,6 @@ vim
 nvim
 make
 cmake
-golang
-python3
 pygments
 ffmpeg
 youtube-dl
@@ -34,3 +32,7 @@ bat
 spotify-tui
 yamllint
 zoxide
+koekeishiya/formulae/yabai
+koekeishiya/formulae/skhd
+goenv
+colima

@@ -4,7 +4,7 @@ declare -i exitcode
 exitcode=0
 
 # dotfiles directory
-DOTFILES_DIRECTORY="${HOME}/dotfiles"
+DOTFILES_DIRECTORY="${HOME}/repos/dotfiles-1"
 
 # get base directory
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -171,12 +171,12 @@ fi
 
 
 
+
 # ----------------------------------------------------
 # Linking dotfiles
 
 mkdir -p ~/.config
 mkdir -p ~/.config/karabiner
-mkdir -p ~/.config/nvim
 mkdir -p ~/.config/k9s
 link_dotfile "zsh/zshrc"             ".zshrc"             || exitcode=1
 link_dotfile "tmux/tmux.conf"        ".tmux.conf"         || exitcode=1
@@ -186,26 +186,18 @@ link_dotfile "config/flake8"         ".config/flake8"     || exitcode=1
 link_dotfile "karabiner/karabiner.json" ".config/karabiner/karabiner.json" || exitcode=1
 link_dotfile "dotfiles/.bash_aliases" ".bash_aliases"     || exitcode=1
 link_dotfile "dotfiles/.bash_functions" ".bash_functions" || exitcode=1
+link_dotfile "wezterm/.wezterm.lua" ".wezterm.lua"        || exitcode=1
 # NOTE: only for linux
-# link_dotfile "k9s/plugin.yml" ".config/k9s/plugin.yml"    || exitcode=1
+# link_dotfile "k9s/plugin.yml" ".config/k9s/plugin.yml"  || exitcode=1
 link_dotfile "k9s/skin.yml" ".config/k9s/skin.yml"    || exitcode=1
-ln -s ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim || exitcode=1
 
+# ---------------------------------------------------
+# nvim config
+p_header "Cloning neovim config"
+git clone git@github.com:shydefoo/nvim.git ~/.config/nvim
+p_success "Successfully cloned neovim config"
 
-# ----------------------------------------------------
-# Vim plugins
-
-p_header "Install vim awesome"
-TMP_INSTALL_PATH="${HOME}/.vim_runtime"
-if [[ ! -d "${TMP_INSTALL_PATH}" ]]; then
-    git clone https://github.com/shydefoo/vimrc.git "${TMP_INSTALL_PATH}" || { echo "Failed" >&2;exit 1; }
-    cur_dir=$(pwd)
-    cd "${TMP_INSTALL_PATH}"
-    sh ./install_awesome_vimrc.sh
-    p_success "Done"
-else
-    p_success "vim_runtime already installed."
-fi
+# ---------------------------------------------------
 
 # ----------------------------------------------------
 # True color in neovim
@@ -249,6 +241,14 @@ p_success "Done"
 
 # ----------------------------------------------------
 # Exit
+
+# ---------------------------------------------------
+# homebrew cask applications
+
+p_header "Install homebrew cask applications"
+/bin/bash ${BASEDIR}/homebrew/install_cask.sh
+p_success "Done"
+# ---------------------------------------------------
 
 if [ ! ${exitcode} -eq 0 ]; then
     echo "Some parts failed"

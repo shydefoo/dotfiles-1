@@ -13,8 +13,7 @@ wezterm.time.call_after(600, function()
 	wezterm.reload_configuration()
 end)
 
-local M = {
-	term = "wezterm",
+local settings = {
 	font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Medium" }),
 	font_size = 12.0,
 	-- color_scheme = "Builtin Solarized Light",
@@ -27,22 +26,28 @@ local M = {
 	tab_bar_at_bottom = true,
 	audible_bell = "Disabled",
 }
-
-local get_colors = function(config, time)
-	if 7 <= time.hour and time.hour <= 9 then
-		-- 0700 to 0959
-		config.color_scheme = "dawnfox"
-	elseif 10 <= time.hour and time.hour <= 15 then
-		-- 1000 to 1559
-		config.color_scheme = "dayfox"
-	elseif 16 <= time.hour and time.hour <= 19 then
-		-- 1600 to 1959
-		config.color_scheme = "duskfox"
-	else
-		config.color_scheme = "nightfox"
-	end
-	return config
+local config = {}
+if wezterm.config_builder then
+  config = wezterm.config_builder()
 end
 
-M = get_colors(M, os.date("*t"))
-return M
+local get_colors = function(x, time)
+	if 7 <= time.hour and time.hour <= 9 then
+		-- 0700 to 0959
+		x.color_scheme = "dawnfox"
+	elseif 10 <= time.hour and time.hour <= 15 then
+		-- 1000 to 1559
+		x.color_scheme = "dayfox"
+	elseif 16 <= time.hour and time.hour <= 19 then
+		-- 1600 to 1959
+		x.color_scheme = "duskfox"
+	else
+		x.color_scheme = "nightfox"
+	end
+	return x
+end
+
+for k,v in pairs(settings) do config[k] = v end
+
+config = get_colors(config, os.date("*t"))
+return config
