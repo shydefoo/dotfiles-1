@@ -26,6 +26,7 @@ minikube
 tflint
 kubectx
 warrensbox/tap/tfswitch
+padok-team/tap/tfautomv
 helm
 tg
 urlview
@@ -34,3 +35,15 @@ bat
 spotify-tui
 yamllint
 zoxide
+colima
+docker
+buildkit
+ripgrep
+tfenv
+argocd
+pngpaste
+mockery
+skhd
+koekeishiya/formulae/yabai
+
+
