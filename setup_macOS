@@ -187,6 +187,8 @@ link_dotfile "karabiner/karabiner.json" ".config/karabiner/karabiner.json" || ex
 link_dotfile "dotfiles/.bash_aliases" ".bash_aliases"     || exitcode=1
 link_dotfile "dotfiles/.bash_functions" ".bash_functions" || exitcode=1
 link_dotfile "wezterm/.wezterm.lua" ".wezterm.lua"        || exitcode=1
+link_dotfile "skhd/.skhdrc" ".skhdrc"        || exitcode=1
+link_dotfile "yabai/.yabairc" ".yabairc"        || exitcode=1
 # NOTE: only for linux
 # link_dotfile "k9s/plugin.yml" ".config/k9s/plugin.yml"  || exitcode=1
 link_dotfile "k9s/skin.yml" ".config/k9s/skin.yml"    || exitcode=1
